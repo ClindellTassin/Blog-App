@@ -1,5 +1,5 @@
 import { FiAlertTriangle } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { verificationTokenAction } from "../../../redux/slices/verification/verificationSlices";
 
 export default function AccountVerificationAlert() {

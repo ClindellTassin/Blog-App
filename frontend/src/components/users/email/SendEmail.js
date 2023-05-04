@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { sendMailAction } from "../../../redux/slices/email/emailSlices";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -138,7 +139,7 @@ const SendEmail = () => {
                   disabled
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600"
                 >
-                  Loading...
+                  <LoadingComponent />
                 </button>
               ) : (
                 <button

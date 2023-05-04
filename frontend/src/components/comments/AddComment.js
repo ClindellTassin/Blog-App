@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { createCommentAction } from "../../redux/slices/comments/commentSlices";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -57,7 +58,7 @@ const AddComment = ({ postId }) => {
             disabled
             className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-gray-600"
           >
-            Loading...
+            <LoadingComponent />
           </button>
         ) : (
           <button

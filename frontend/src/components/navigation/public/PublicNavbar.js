@@ -2,14 +2,15 @@ import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { RiLoginBoxLine } from "react-icons/ri";
-import { BiBookOpen } from "react-icons/bi";
+// import { BiBookOpen } from "react-icons/bi";
+import Roomie from "../../../img/roomie.jpg"
 
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Create", href: "/create-post", current: false },
   { name: "Posts", href: "/posts", current: false },
   { name: "Register", href: "/register", current: false },
-  { name: "Login", href: "/login", current: false },
+  // { name: "Login", href: "/login", current: false },
 ];
 
 function classNames(...classes) {
@@ -18,7 +19,7 @@ function classNames(...classes) {
 
 const PublicNavbar = () => {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-green-800">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,7 +44,10 @@ const PublicNavbar = () => {
                 </div>
                 <div className="flex-shrink-0 flex items-center">
                   {/* Logo */}
-                  <BiBookOpen className="h-10 w-10 text-yellow-200" />
+                  <Link to="/" className="cursor-pointer">
+                  <img src={Roomie} alt="roomie" className="h-10 w-10 text-yellow-500 object-cover rounded-full" />
+                  </Link>
+                  {/* <BiBookOpen className="h-10 w-10 text-yellow-200" /> */}
                 </div>
                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
                   {navigation.map((item) => (
@@ -68,7 +72,7 @@ const PublicNavbar = () => {
                   <Link
                     to="/login"
                     type="button"
-                    className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                    className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-green-500"
                   >
                     <RiLoginBoxLine
                       className="-ml-1 mr-2 h-5 w-5"
@@ -80,7 +84,7 @@ const PublicNavbar = () => {
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
                   <Link
                     to="/create-post"
-                    className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                    className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-yellow-500"
                   >
                     <AiOutlinePlus
                       className="-ml-1 mr-2 h-5 w-5"

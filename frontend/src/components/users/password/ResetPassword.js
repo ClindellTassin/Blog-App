@@ -5,6 +5,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineLock } from "react-icons/ai";
 import { passwordResetAction } from "../../../redux/slices/users/usersSlices";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -42,18 +43,18 @@ const ResetPassword = () => {
   }, [passwordReset, navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-200 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-green-700 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Password Reset
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-yellow-500">
+          Reset Password
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-yellow-500">
             <Link
               to="/reset-password"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className="font-medium text-yellow-500 hover:text-yellow-400"
             >
-              Reset your password if you have forgotten
+              Reset your password below
             </Link>
           </p>
         </div>
@@ -70,8 +71,7 @@ const ResetPassword = () => {
         <div className="text-green-700 text-center">
           {passwordReset && (
             <h3>
-              Password Reset Successfully. You will be redirected to login with
-              5 seconds
+              Password Reset Successfully. You must log back in with new password
             </h3>
           )}
         </div>
@@ -102,31 +102,22 @@ const ResetPassword = () => {
 
           <div>
             {loading ? (
-              <button
-                disabled
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 "
-              >
-                <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <AiOutlineLock
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  />
-                </span>
-                Loading please wait...
-              </button>
+              <LoadingComponent />
             ) : (
+              <Link to="/login">
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <AiOutlineLock
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    className="h-5 w-5 text-yellow-500 group-hover:text-yellow-400"
                     aria-hidden="true"
                   />
                 </span>
                 Reset Password
               </button>
+              </Link>
             )}
           </div>
         </form>

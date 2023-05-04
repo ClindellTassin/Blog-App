@@ -8,6 +8,7 @@ import {
   fetchPostDetailsAction,
   updatePostAction,
 } from "../../redux/slices/posts/postSlices";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
@@ -126,7 +127,7 @@ export default function UpdatePost(props) {
                     disabled
                     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-500"
                   >
-                    Loading...
+                    <LoadingComponent />
                   </button>
                 ) : (
                   <button

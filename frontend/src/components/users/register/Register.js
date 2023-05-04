@@ -1,4 +1,5 @@
 import React from "react";
+import Lion from "../../../img/register.png";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,32 +39,35 @@ const Register = () => {
 
   //select state from store
   const storeData = useSelector((store) => store?.users);
-  const { loading, appErr, serverErr, registered } = storeData;
+  const { loading, appErr, serverErr, isRegistered } = storeData;
 
   //redirect
-  if (registered) {
-    navigate("/profile");
+  if (isRegistered) {
+    setTimeout(() => {
+      navigate("/login");
+    }, 3000);
   }
 
   return (
-    <section className="relative py-20 2xl:py-40 bg-gray-800 overflow-hidden">
+    <section className="relative py-20 2xl:py-40 bg-green-700 overflow-hidden">
       <div className="relative container px-4 mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap items-center -mx-4">
             <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
               <div className="max-w-md">
-                <span className="text-lg text-blue-400 font-bold">
+                <span className="text-lg text-green-700 font-bold">
                   Register Account
                 </span>
+                <img src={Lion} alt="logo" className="rounded-full ml-24" />
                 <h2 className="mt-8 mb-12 text-5xl font-bold font-heading text-white">
                   Create an account and start pending down your ideas
                 </h2>
               </div>
             </div>
             <div className="w-full lg:w-1/2 px-4">
-              <div className="px-6 lg:px-20 py-12 lg:py-24 bg-gray-600 rounded-lg">
+              <div className="px-6 lg:px-20 py-12 lg:py-24 bg-yellow-500 rounded-lg">
                 <form onSubmit={formik.handleSubmit}>
-                  <h3 className="mb-10 text-2xl text-white font-bold font-heading">
+                  <h3 className="mb-10 text-2xl text-green-700 font-bold font-heading">
                     Register Account
                     {/* display error message*/}
                     {appErr || serverErr ? (
@@ -123,7 +127,7 @@ const Register = () => {
                     />
                   </div>
                   {/* Err msg*/}
-                  <div className="text-red-400 mb-2">
+                  <div className="text-green-700 mb-2">
                     {formik.touched.firstName && formik.errors.firstName}
                   </div>
                   {/* Last name */}
@@ -176,7 +180,7 @@ const Register = () => {
                     />
                   </div>
                   {/* Err msg*/}
-                  <div className="text-red-400 mb-2">
+                  <div className="text-green-700 mb-2">
                     {formik.touched.lastName && formik.errors.lastName}
                   </div>
                   {/* Email */}
@@ -229,7 +233,7 @@ const Register = () => {
                     />
                   </div>
                   {/* Err msg*/}
-                  <div className="text-red-400 mb-2">
+                  <div className="text-green-700 mb-2">
                     {formik.touched.email && formik.errors.email}
                   </div>
                   <div className="flex items-center pl-6 mb-3 bg-white rounded-full">
@@ -262,7 +266,7 @@ const Register = () => {
                     />
                   </div>
                   {/* Err msg*/}
-                  <div className="text-red-400 mb-2">
+                  <div className="text-green-700 mb-2">
                     {formik.touched.password && formik.errors.password}
                   </div>
 
@@ -279,7 +283,7 @@ const Register = () => {
                   ) : (
                     <button
                       type="submit"
-                      className="py-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full transition duration-200"
+                      className="py-4 w-full bg-green-700 hover:bg-green-500 text-white font-bold rounded-full transition duration-200"
                     >
                       Register
                     </button>

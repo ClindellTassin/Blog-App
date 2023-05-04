@@ -199,7 +199,7 @@ const unfollowUser = expressAsyncHandler(async (req, res) => {
 });
 
 const blockUser = expressAsyncHandler(async (req, res) => {
-  const { id } = req?.params;
+  const { id } = req.params;
   validateMongodbId(id);
 
   const user = await User.findByIdAndUpdate(
@@ -229,6 +229,7 @@ const unBlockUser = expressAsyncHandler(async (req, res) => {
 });
 
 const generateVerificationToken = expressAsyncHandler(async (req, res) => {
+  const {firstName, lastName} = req.body
   const loginUserId = req.user.id;
   const user = await User.findById(loginUserId);
 
@@ -236,8 +237,8 @@ const generateVerificationToken = expressAsyncHandler(async (req, res) => {
     const verificationToken = await user?.createAccountVerificationToken();
     await user.save();
 
-    const resetURL = `If you were requested to verify your account, verify now within 10 minutes otherwise ignore this message
-                      <a href="http://localhost:3000/verify-account/${verificationToken}">Click to verify your Account.</a>`;
+    const resetURL = `Hi ${firstName} ${lastName}, To verify your account please click the link below.
+                      <a href="http://localhost:3000/verify-account/${verificationToken}">Click here to verify your Account.</a>`;
     const msg = {
       to: user?.email,
       from: "clindell.tassin@selu.edu",
@@ -271,7 +272,7 @@ const accountVerification = expressAsyncHandler(async (req, res) => {
 });
 
 const forgetPasswordToken = expressAsyncHandler(async (req, res) => {
-  const { email } = req.body;
+  const { email, firstName, lastName } = req.body;
 
   const user = await User.findOne({ email });
   if (!user) throw new Error("User Not Found");
@@ -280,8 +281,8 @@ const forgetPasswordToken = expressAsyncHandler(async (req, res) => {
     const token = await user.createPasswordResetToken();
     await user.save();
 
-    const resetURL = `If you were requested to reset your password, reset now within 10 minutes otherwise ignore this message
-                      <a href="http://localhost:3000/reset-password/${token}">Click to verify your Account.</a>`;
+    const resetURL = `Hi ${firstName} ${lastName}, To reset your password, Click the link below to confirm.
+                      <a href="http://localhost:3000/reset-password/${token}">Click here to reset password.</a>`;
     const msg = {
       to: email,
       from: "clindell.tassin@selu.edu",

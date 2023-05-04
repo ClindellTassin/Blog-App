@@ -123,7 +123,7 @@ userSchema.methods.createAccountVerificationToken = async function () {
     .update(verificationToken)
     .digest("hex");
 
-  this.accountVerificationTokenExpires = Date.now() + 30 * 60 * 1000; // 10 minutes
+  this.accountVerificationTokenExpires = Date.now() + 30 * 60 * 3000; // 30 minutes
   return verificationToken;
 };
 

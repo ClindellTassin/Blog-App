@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import { BiBookOpen } from "react-icons/bi";
+import Roomie from "../../../img/roomie.jpg"
 import { AiOutlinePlus, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
@@ -11,7 +11,6 @@ const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Create", href: "/create-post", current: false },
   { name: "Posts", href: "/posts", current: false },
-  { name: "Profile", href: "/users", current: false },
 ];
 
 function classNames(...classes) {
@@ -27,7 +26,7 @@ const PrivateNavbar = ({ isLogin }) => {
   const dispatch = useDispatch();
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-green-900">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +51,8 @@ const PrivateNavbar = ({ isLogin }) => {
                 </div>
                 <div className="flex-shrink-0 flex items-center">
                   {/* Logo */}
-                  <BiBookOpen className="h-10 w-10 text-yellow-200" />
+                  {/* <BiBookOpen className="h-10 w-10 text-yellow-200" /> */}
+                  <img src={Roomie} alt="logo" className="h-12 w-12 rounded-full" />
                 </div>
                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
                   {navigation.map((item) => (
@@ -76,7 +76,7 @@ const PrivateNavbar = ({ isLogin }) => {
                 <div className="flex-shrink-0 ">
                   <Link
                     to="/create-post"
-                    className="pr-3  relative inline-flex items-center mr-2 px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                    className="pr-3  relative inline-flex items-center mr-2 px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-500 focus:ring-green-500"
                   >
                     <AiOutlinePlus
                       className="-ml-1 mr-2 h-5 w-5"
@@ -88,7 +88,7 @@ const PrivateNavbar = ({ isLogin }) => {
                   <button
                     onClick={() => dispatch(logoutUserAction())}
                     type="button"
-                    className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                    className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-400 focus:ring-yellow-400"
                   >
                     <RiLogoutBoxRLine
                       className="-ml-1 mr-2 h-5 w-5"

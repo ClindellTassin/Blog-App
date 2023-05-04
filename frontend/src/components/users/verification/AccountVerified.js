@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAction } from "../../../redux/slices/users/usersSlices";
 import { verifyAccountAction } from "../../../redux/slices/verification/verificationSlices";
@@ -8,14 +8,13 @@ import { verifyAccountAction } from "../../../redux/slices/verification/verifica
 export default function AccountVerified() {
   const { token } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(verifyAccountAction(token));
   }, [dispatch, token]);
 
   const account = useSelector((state) => state.verification);
-  const { loading, appErr, serverErr, isVerified, verified } = account;
+  const { verified } = account;
 
 //   if (isVerified) {
 //     setTimeout(() => {
@@ -44,8 +43,8 @@ export default function AccountVerified() {
                 </div>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Your account is now verified. Logout and login back in to see
-                    the changes
+                    Your account is now verified. Log back in to see
+                    your changes
                   </p>
                 </div>
               </div>
@@ -54,7 +53,7 @@ export default function AccountVerified() {
               <button
                 onClick={() => dispatch(logoutUserAction())}
                 type="button"
-                className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-700 text-base font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
               >
                 Logout
               </button>

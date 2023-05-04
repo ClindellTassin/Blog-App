@@ -11,6 +11,7 @@ import {
   updateCategoriesAction,
 } from "../../redux/slices/category/categorySlice";
 import { useParams, useNavigate } from "react-router-dom";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
@@ -101,7 +102,7 @@ const UpdateCategory = () => {
                       aria-hidden="true"
                     />
                   </span>
-                  Loading...
+                  <LoadingComponent />
                 </button>
               ) : (
                 <>

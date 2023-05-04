@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineLock } from "react-icons/ai";
 import { passwordTokenAction } from "../../../redux/slices/users/usersSlices";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -28,16 +29,16 @@ const ResetPasswordForm = () => {
   const { passwordToken, loading, appErr, serverErr } = users;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-green-700 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Password Reset Form
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-yellow-500">
+            Reset Password
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             <a
               href="/"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className="font-medium text-yellow-500 hover:text-yellow-400"
             >
               Reset your password if you have forgotten
             </a>
@@ -88,7 +89,7 @@ const ResetPasswordForm = () => {
             <div className="text-sm">
               <Link
                 to="/update-password"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="font-medium text-yellow-500 hover:text-yellow-300"
               >
                 Or Update Your Password ?
               </Link>
@@ -97,26 +98,15 @@ const ResetPasswordForm = () => {
 
           <div>
             {loading ? (
-              <button
-                disabled
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 "
-              >
-                <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <AiOutlineLock
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  />
-                </span>
-                Loading...
-              </button>
+              <LoadingComponent />
             ) : (
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <AiOutlineLock
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    className="h-5 w-5 text-green-700 group-hover:text-black"
                     aria-hidden="true"
                   />
                 </span>

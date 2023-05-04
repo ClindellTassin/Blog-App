@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createCategoryAction } from "../../redux/slices/category/categorySlice";
 import { useNavigate } from "react-router-dom";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
@@ -88,7 +89,7 @@ const AddNewCategory = () => {
                       aria-hidden="true"
                     />
                   </span>
-                  Loading...
+                  <LoadingComponent />
                 </button>
               ) : (
                 <button

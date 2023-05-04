@@ -5,6 +5,7 @@ import { baseUrl } from "../../../utils/baseURL";
 // redirect action
 const resetUserAction = createAction("user/profile/reset");
 const resetPasswordAction = createAction("password/reset");
+const resetRegisterAction = createAction("register/reset");
 
 // register users
 export const registerUserAction = createAsyncThunk(
@@ -21,6 +22,7 @@ export const registerUserAction = createAsyncThunk(
         user,
         config
       );
+      dispatch(resetRegisterAction())
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -410,8 +412,12 @@ const usersSlices = createSlice({
       state.appErr = undefined;
       state.serverErr = undefined;
     });
+    builder.addCase(resetRegisterAction, (state, action) => {
+      state.isRegistered = true;
+    });
     builder.addCase(registerUserAction.fulfilled, (state, action) => {
       state.loading = false;
+      state.isRegistered = false;
       state.registered = action?.payload;
       state.appErr = undefined;
       state.serverErr = undefined;

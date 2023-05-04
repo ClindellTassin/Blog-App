@@ -162,7 +162,7 @@ export default function PostsList() {
                       </div>
                       <div className="w-full lg:w-3/4 px-3">
                         <Link className="hover:underline">
-                          <h3 className="mb-1 text-2xl text-green-400 font-bold font-heading">
+                          <h3 className="mb-1 text-2xl text-green-700 font-bold font-heading">
                             {/* {capitalizeWord(post?.title)} */}
                             {post?.title}
                           </h3>
@@ -171,7 +171,7 @@ export default function PostsList() {
                         {/* Read more */}
                         <Link
                           to={`/posts/${post?._id}`}
-                          className="text-indigo-500 hover:underline"
+                          className="text-green-700 hover:underline"
                         >
                           Read More..
                         </Link>

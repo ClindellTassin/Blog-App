@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadProfilePhotoAction } from "../../../redux/slices/users/usersSlices";
 import { useNavigate } from "react-router-dom";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Css for dropzone
 const Container = styled.div`
@@ -106,7 +107,7 @@ export default function UploadProfilePhoto() {
                     className="-ml-1 mr-2 h-5  text-gray-400"
                     aria-hidden="true"
                   />
-                  <span>Loading...</span>
+                  <span><LoadingComponent /></span>
                 </button>
               ) : (
                 <button

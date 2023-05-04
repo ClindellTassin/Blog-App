@@ -1,10 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import poster from "../../../img/poster.png";
+import Lion from "../../../img/symbols.png"
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAction } from "../../../redux/slices/users/usersSlices";
 import { Link, useNavigate } from "react-router-dom";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -42,7 +43,7 @@ const Login = () => {
         <div className="absolute top-0 left-0 lg:bottom-0 h-full lg:h-auto w-full lg:w-4/12 bg-violet-500 lg:overflow-hidden">
           <img
             className="hidden lg:block h-full w-full object-cover"
-            src={poster}
+            src={Lion}
             alt=""
           />
         </div>
@@ -50,10 +51,10 @@ const Login = () => {
           <div className="max-w-5xl mx-auto">
             <div className="flex flex-wrap items-center -mx-4">
               <div className="w-full lg:w-2/5 px-4">
-                <div className="px-6 lg:px-12 py-12 lg:py-24 bg-white shadow-lg rounded-lg">
+                <div className="px-6 lg:px-12 py-12 lg:py-24 bg-yellow-500 shadow-lg rounded-lg">
                   {/* Form */}
                   <form onSubmit={formik.handleSubmit}>
-                    <h3 className="mb-10 text-2xl font-bold font-heading">
+                    <h3 className="mb-10 text-2xl text-green-700 font-bold font-heading">
                       {/* Header */}
                       Login to your Account
                     </h3>
@@ -137,12 +138,12 @@ const Login = () => {
                         disabled
                         className="py-4 w-full bg-gray-500 text-white font-bold rounded-full transition duration-200"
                       >
-                        Loading...
+                        <LoadingComponent />
                       </button>
                     ) : (
                       <button
                         type="submit"
-                        className="py-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full transition duration-200"
+                        className="py-4 w-full bg-green-700 hover:bg-green-600 text-white font-bold rounded-full transition duration-200"
                       >
                         Login
                       </button>
@@ -151,7 +152,7 @@ const Login = () => {
                   <div className="p-2">
                     <Link
                       to="/password-reset-token"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                      className="font-medium text-green-700 hover:text-green-600"
                     >
                       Forget Password ?
                     </Link>
@@ -159,7 +160,7 @@ const Login = () => {
                 </div>
               </div>
               <div className="w-full lg:w-3/5 px-4 mb-16 lg:mb-0 order-first lg:order-last">
-                <span className="flex mb-10 mx-auto items-center justify-center h-20 w-20 bg-blue-500 rounded-lg">
+                <span className="flex mb-10 mx-auto items-center justify-center h-20 w-20 bg-green-700 rounded-lg">
                   <svg
                     width="37"
                     height="37"
@@ -200,7 +201,7 @@ const Login = () => {
                   </svg>
                 </span>
                 <h2 className="mb-10 text-center text-6xl lg:text-7xl text-gray-300 font-bold font-heading">
-                  Ready to start? Login Now.
+                  Ready to blog? Login Now.
                 </h2>
               </div>
             </div>

@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePasswordAction } from "../../../redux/slices/users/usersSlices";
 import { useNavigate } from "react-router-dom";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -30,9 +31,9 @@ const UpdatePassword = () => {
   if (isPasswordUpdated) navigate(`/profile/${userAuth?._id}`);
 
   return (
-    <div className="min-h-screen bg-gray-700  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-green-700  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-300">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-yellow-500">
           Change your password
         </h2>
         <h2 className="text-center pt-2 text-red-400">
@@ -79,22 +80,17 @@ const UpdatePassword = () => {
               />
             </div>
             {/* Err msg */}
-            <div className="text-red-400 mb-2">
+            <div className="text-green-700 mb-2">
               {formik.touched.password && formik.errors.password}
             </div>
             <div>
               {/* Submit btn */}
               {loading ? (
-                <button
-                  disabled
-                  className="inline-flex bg-gray-700 justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-200"
-                >
-                  <span>Loading...</span>
-                </button>
+                <LoadingComponent />
               ) : (
                 <button
                   type="submit"
-                  className="inline-flex bg-indigo-700 justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-200  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                  className="inline-flex bg-yellow-500 justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-200  hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                 >
                   <span>Update Password</span>
                 </button>
