@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { registerUserAction } from "../../../redux/slices/users/usersSlices";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -71,7 +72,7 @@ const Register = () => {
                     Register Account
                     {/* display error message*/}
                     {appErr || serverErr ? (
-                      <div className="text-red-400">
+                      <div className="text-green-400">
                         {serverErr} {appErr}
                       </div>
                     ) : null}
@@ -276,9 +277,9 @@ const Register = () => {
                   {loading ? (
                     <button
                       disabled
-                      className="py-4 w-full bg-gray-500  text-white font-bold rounded-full transition duration-200"
+                      className="py-4 w-full bg-green-700  text-white font-bold rounded-full transition duration-200"
                     >
-                      loading please wait...
+                      <LoadingComponent />
                     </button>
                   ) : (
                     <button

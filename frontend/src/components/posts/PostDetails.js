@@ -44,7 +44,7 @@ const PostDetails = () => {
           <LoadingComponent />
         </div>
       ) : appErr || serverErr ? (
-        <h1 className="h-screen text-red-300 text-xl">
+        <h1 className="h-screen text-green-300 text-xl">
           {serverErr} - {appErr}
         </h1>
       ) : (
@@ -102,7 +102,7 @@ const PostDetails = () => {
                         }
                         className="ml-3"
                       >
-                        <RiDeleteBin6Line className="h-8 mt-3 text-red-600" />
+                        <RiDeleteBin6Line className="h-8 mt-3 text-green-600" />
                       </button>
                     </p>
                   ) : null}

@@ -60,7 +60,7 @@ export default function CommentsList({ comments }) {
                             }
                             className="ml-3"
                           >
-                            <RiDeleteBin6Line className="h-5 mt-3 text-red-600" />
+                            <RiDeleteBin6Line className="h-5 mt-3 text-green-600" />
                           </button>
                         </p>
                       ) : null}

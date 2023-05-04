@@ -56,18 +56,18 @@ const UpdateComment = () => {
             type="text"
             name="text"
             id="text"
-            className="shadow-sm focus:ring-indigo-500  mr-2 focus:border-indigo-500 block w-full p-2 border-2 sm:text-sm border-gray-300 rounded-md"
+            className="shadow-sm focus:ring-green-500  mr-2 focus:border-green-500 block w-full p-2 border-2 sm:text-sm border-gray-300 rounded-md"
             placeholder="Add New comment"
           />
 
           <button
             type="submit"
-            className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           >
             Submit
           </button>
         </form>
-        <div className="text-red-400 mb-2 mt-2">
+        <div className="text-green-400 mb-2 mt-2">
           {formik.touched.description && formik.errors.description}
         </div>
       </div>

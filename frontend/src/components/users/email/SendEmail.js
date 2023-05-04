@@ -16,6 +16,9 @@ const SendEmail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const users = useSelector((state) => state.users);
+  const { profile } = users;
+
   //formik
   const formik = useFormik({
     initialValues: {
@@ -39,12 +42,14 @@ const SendEmail = () => {
     <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-300">
-          Send Mesage
+          <span>Sending message to: </span>{" "}
           {/* Email title */}
-          <span className="text-green-300">email title</span>
+          <span className="text-green-300">
+             {profile?.email}
+          </span>
         </h2>
 
-        <p className="mt-2 text-center text-lg text-red-500">
+        <p className="mt-2 text-center text-lg text-green-700">
           {serverErr || appErr ? (
             <h2>
               {appErr} - {serverErr}
@@ -77,11 +82,11 @@ const SendEmail = () => {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="appearance-none block w-full px-3 py-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-700 focus:border-green-600 sm:text-sm"
                 />
               </div>
               {/* Err msg */}
-              <div className="text-red-500">
+              <div className="text-green-700">
                 {formik.touched.recipientEmail && formik.errors.recipientEmail}
               </div>
             </div>
@@ -102,11 +107,11 @@ const SendEmail = () => {
                   name="subject"
                   type="text"
                   autoComplete="subject"
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-700 focus:border-green-700 sm:text-sm"
                 />
               </div>
               {/* err msg */}
-              <div className="text-red-500">
+              <div className="text-green-700">
                 {formik.touched.subject && formik.errors.subject}
               </div>
             </div>
@@ -124,11 +129,11 @@ const SendEmail = () => {
                 onBlur={formik.handleBlur("message")}
                 rows="5"
                 cols="10"
-                className="rounded-lg appearance-none block w-full py-3 px-3 text-base text-center leading-tight text-gray-600 bg-transparent focus:bg-transparent  border border-gray-200 focus:border-gray-500  focus:outline-none"
+                className="rounded-lg appearance-none block w-full py-3 px-3 text-base text-center leading-tight text-gray-600 bg-transparent focus:bg-transparent  border border-gray-200 focus:border-green-700  focus:outline-none"
                 type="text"
               ></textarea>
               {/* err here */}
-              <div className="text-red-500">
+              <div className="text-green-700">
                 {formik.touched.message && formik.errors.message}
               </div>
             </div>
@@ -144,7 +149,7 @@ const SendEmail = () => {
               ) : (
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                 >
                   Send
                 </button>

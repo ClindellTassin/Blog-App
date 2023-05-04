@@ -34,7 +34,7 @@ const AddComment = ({ postId }) => {
     <div className="flex flex-col justify-center items-center">
       {/* Error Message */}
       {serverErr || appErr ? (
-        <h2 className="text-red-400 pb-2">
+        <h2 className="text-green-400 pb-2">
           {serverErr} - {appErr}
         </h2>
       ) : null}
@@ -49,7 +49,7 @@ const AddComment = ({ postId }) => {
           type="text"
           name="text"
           id="text"
-          className="shadow-sm focus:ring-indigo-500  mr-2 focus:border-indigo-500 block w-full p-2 border-1 sm:text-sm border-gray-300 rounded-md"
+          className="shadow-sm focus:ring-green-700  mr-2 focus:border-green-700 block w-full p-2 border-1 sm:text-sm border-gray-300 rounded-md"
           placeholder="Add New comment"
         />
 
@@ -63,13 +63,13 @@ const AddComment = ({ postId }) => {
         ) : (
           <button
             type="submit"
-            className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-green-700 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
           >
             Submit
           </button>
         )}
       </form>
-      <div className="text-red-400 mb-2 mt-2">
+      <div className="text-green-400 mb-2 mt-2">
         {formik.touched.description && formik.errors.description}
       </div>
     </div>

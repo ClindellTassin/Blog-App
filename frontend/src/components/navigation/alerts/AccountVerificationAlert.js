@@ -6,7 +6,7 @@ export default function AccountVerificationAlert() {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-red-500 border-l-4 border-yellow-400 p-1">
+    <div className="bg-green-500 border-l-4 border-yellow-400 p-1">
       <div className="flex">
         <div className="flex-shrink-0">
           <FiAlertTriangle

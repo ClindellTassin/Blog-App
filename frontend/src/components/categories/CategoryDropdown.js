@@ -46,7 +46,7 @@ const CategoryDropdown = (props) => {
       )}
       {/* Display */}
       {props?.error && (
-        <div style={{ color: "red", marginTop: ".5rem" }}>{props?.error}</div>
+        <div style={{ color: "green", marginTop: ".5rem" }}>{props?.error}</div>
       )}
     </div>
   );

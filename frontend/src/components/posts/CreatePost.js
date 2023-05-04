@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { createPostAction } from "../../redux/slices/posts/postSlices";
 import CategoryDropdown from "../categories/CategoryDropdown";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 //Form schema
 const formSchema = Yup.object({
@@ -26,7 +27,7 @@ const Container = styled.div`
   border-style: dashed;
   background-color: #fafafa;
   color: #bdbdbd;
-border-color:'red'
+border-color:'green'
   transition: border 0.24s ease-in-out;
 `;
 
@@ -70,14 +71,14 @@ export default function CreatePost() {
           </h2>
 
           <p className="mt-2 text-center text-sm text-gray-600">
-            <p className="font-medium text-green-600 hover:text-indigo-500">
+            <p className="font-medium text-green-600 hover:text-green-500">
               Share your ideas to the word. Your post must be free from
               profanity
             </p>
           </p>
 
           {appErr || serverErr ? (
-            <p className="mt-2 text-center text-lg text-red-600">
+            <p className="mt-2 text-center text-lg text-green-700">
               {serverErr} {appErr}
             </p>
           ) : null}
@@ -102,11 +103,11 @@ export default function CreatePost() {
                     name="title"
                     type="title"
                     autoComplete="title"
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-700 focus:border-green-700 sm:text-sm"
                   />
                 </div>
                 {/* Err msg */}
-                <div className="text-red-500">
+                <div className="text-green-700">
                   {formik?.touched?.title && formik?.errors?.title}
                 </div>
               </div>
@@ -138,7 +139,7 @@ export default function CreatePost() {
                   onBlur={formik.handleBlur("description")}
                   rows="5"
                   cols="10"
-                  className="rounded-lg appearance-none block w-full py-3 px-3 text-base text-center leading-tight text-gray-600 bg-transparent focus:bg-transparent  border border-gray-200 focus:border-gray-500  focus:outline-none"
+                  className="rounded-lg appearance-none block w-full py-3 px-3 text-base text-center leading-tight text-gray-600 bg-transparent focus:bg-transparent  border border-gray-200 focus:border-green-700  focus:outline-none"
                   type="text"
                 ></textarea>
                 {/* Image component */}
@@ -174,7 +175,7 @@ export default function CreatePost() {
                   </Dropzone>
                 </Container>
                 {/* Err msg */}
-                <div className="text-red-500">
+                <div className="text-green-700">
                   {formik?.touched?.description && formik.errors?.description}
                 </div>
               </div>
@@ -183,14 +184,14 @@ export default function CreatePost() {
                 {loading ? (
                   <button
                     disabled
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                   >
-                    Loading please wait...
+                    <LoadingComponent />
                   </button>
                 ) : (
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                   >
                     Create
                   </button>

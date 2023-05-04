@@ -60,7 +60,7 @@ const Login = () => {
                     </h3>
                     {/* Display Error */}
                     {serverErr || appErr ? (
-                      <h2 className="text-red-500">
+                      <h2 className="text-green-500">
                         {serverErr} - {appErr}
                       </h2>
                     ) : null}
@@ -95,7 +95,7 @@ const Login = () => {
                       />
                     </div>
                     {/* Err message */}
-                    <div className="text-red-400 mb-2">
+                    <div className="text-green-400 mb-2">
                       {formik.touched.email && formik.errors.email}
                     </div>
                     <div className="flex items-center pl-6 mb-6 border border-gray-50 bg-white rounded-full">
@@ -129,14 +129,14 @@ const Login = () => {
                       />
                     </div>
                     {/* Err msg */}
-                    <div className="text-red-400 mb-2">
+                    <div className="text-green-400 mb-2">
                       {formik.touched.password && formik.errors.password}
                     </div>
                     {/* Login btn */}
                     {loading ? (
                       <button
                         disabled
-                        className="py-4 w-full bg-gray-500 text-white font-bold rounded-full transition duration-200"
+                        className="py-4 w-full bg-green-700 text-white font-bold rounded-full transition duration-200"
                       >
                         <LoadingComponent />
                       </button>

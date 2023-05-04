@@ -30,7 +30,7 @@ const Navbar = () => {
       {loading && <h2 className="text-center"><LoadingComponent /></h2>}
       {token && <AccountVerificationSuccess />}
       {appErr || serverErr ? (
-        <h2 className="text-center text-red-500">
+        <h2 className="text-center text-green-500">
           {appErr} - {serverErr}
         </h2>
       ) : null}

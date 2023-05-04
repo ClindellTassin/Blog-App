@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { logoutUserAction } from "../../../redux/slices/users/usersSlices";
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
+  { name: "Home", href: "/", current: false },
   { name: "Create", href: "/create-post", current: false },
   { name: "Posts", href: "/posts", current: false },
   { name: "Authors", href: "/users", current: false },
@@ -66,8 +66,8 @@ const AdminNavbar = ({ isLogin }) => {
                       to={item.href}
                       className={classNames(
                         item.current
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          ? "bg-green-700 text-white"
+                          : "text-yellow-500 hover:bg-yellow-400 hover:text-white",
                         "px-3 py-2 rounded-md text-sm font-medium"
                       )}
                       aria-current={item.current ? "page" : undefined}

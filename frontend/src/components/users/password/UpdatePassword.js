@@ -36,7 +36,7 @@ const UpdatePassword = () => {
         <h2 className="mt-6 text-center text-3xl font-extrabold text-yellow-500">
           Change your password
         </h2>
-        <h2 className="text-center pt-2 text-red-400">
+        <h2 className="text-center pt-2 text-green-400">
           {serverErr || appErr ? (
             <p>
               {serverErr} - {appErr}

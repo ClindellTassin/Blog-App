@@ -45,7 +45,7 @@ export default function Profile() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-200 flex justify-center items-center">
+      <div className="min-h-screen bg-gray-800 flex justify-center items-center">
         {profileLoading ? (
           <LoadingComponent />
         ) : profileAppErr || profileServerErr ? (
@@ -53,7 +53,7 @@ export default function Profile() {
             {profileServerErr} {profileAppErr}
           </h2>
         ) : (
-          <div className="h-screen flex overflow-hidden bg-white">
+          <div className="h-screen flex overflow-hidden bg-gray-100">
             {/* Static sidebar for desktop */}
 
             <div className="flex flex-col min-w-0 flex-1 overflow-hidden">
@@ -109,7 +109,7 @@ export default function Profile() {
                               <div className="flex items-center  mb-2">
                                 <AiFillEye className="h-5 w-5 " />
                                 <div className="pl-2">
-                                  <span className="text-indigo-400 cursor-pointer">
+                                  <span className="text-green-400 cursor-pointer">
                                     Number of viewers:{" "}
                                     {profile?.viewedBy?.length}
                                   </span>
@@ -121,7 +121,7 @@ export default function Profile() {
                               {isLoginUser && (
                                 <Link
                                   to={`/upload-profile-photo`}
-                                  className="inline-flex justify-center w-48 px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                  className="inline-flex justify-center w-48 px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                                 >
                                   <BsFillCloudUploadFill
                                     className="-ml-1 mr-2 h-5 w-5 text-gray-400"
@@ -141,7 +141,7 @@ export default function Profile() {
                                       onClick={() =>
                                         dispatch(unfollowUserAction(id))
                                       }
-                                      className="mr-2 inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                      className="mr-2 inline-flex justify-center px-4 py-2 border border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                                     >
                                       <FaSadCry
                                         className="-ml-1 mr-2 h-5 w-5 text-gray-400"
@@ -155,7 +155,7 @@ export default function Profile() {
                                         dispatch(followUserAction(id))
                                       }
                                       type="button"
-                                      className="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                      className="inline-flex justify-center px-4 py-2 border border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                                     >
                                       <AiTwotoneHeart
                                         className="-ml-1 mr-2 h-5 w-5 text-gray-400"
@@ -178,10 +178,10 @@ export default function Profile() {
                                 {isLoginUser && (
                                   <Link
                                     to={`/update-profile/${profile?._id}`}
-                                    className="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                    className="inline-flex justify-center px-4 py-2 border border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                                   >
                                     <FaUser
-                                      className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                                      className="-ml-1 mr-2 h-5 w-5 text-gray-600"
                                       aria-hidden="true"
                                     />
                                     <span>Update Profile</span>
@@ -191,7 +191,7 @@ export default function Profile() {
                               {/* Send Mail */}
                               <button
                                 onClick={sendMailNavigate}
-                                className="inline-flex justify-center bg-indigo-900 px-4 py-2 border border-yellow-700 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                className="inline-flex justify-center bg-green-700 px-4 py-2 border border-yellow-500 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                               >
                                 <AiTwotoneMail
                                   className="-ml-1 mr-2 h-5 w-5 text-gray-200"
@@ -220,7 +220,7 @@ export default function Profile() {
                     <div className="flex justify-center place-items-start flex-wrap  md:mb-0">
                       <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0">
                         <h1 className="text-center text-xl border-gray-500 mb-2 border-b-2">
-                          Who viewed my profile : {profile?.viewedBy?.length}
+                          Who viewed my profile: {profile?.viewedBy?.length}
                         </h1>
 
                         {/* Who view my post */}
@@ -241,7 +241,7 @@ export default function Profile() {
                                       <h3>
                                         {user?.firstName} {user?.lastName}
                                       </h3>
-                                      <p className="text-indigo-600">
+                                      <p className="text-green-600">
                                         {user?.accountType}
                                       </p>
                                     </div>
@@ -255,7 +255,7 @@ export default function Profile() {
                       {/* All my Post */}
                       <div className="w-full md:w-2/3 px-4 mb-4 md:mb-0">
                         <h1 className="text-center text-xl border-gray-500 mb-2 border-b-2">
-                          My Post - {profile?.posts?.length}
+                          My Post: {profile?.posts?.length}
                         </h1>
                         {/* Loop here */}
                         {profile?.posts?.length <= 0 ? (
@@ -286,7 +286,7 @@ export default function Profile() {
                                 </p>
 
                                 <Link
-                                  className="text-indigo-500 hover:underline"
+                                  className="text-green-500 hover:underline"
                                   to={`/posts/${post?._id}`}
                                 >
                                   Read more

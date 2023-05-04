@@ -108,7 +108,6 @@ const userProfile = expressAsyncHandler(async (req, res) => {
 
 const updateUser = expressAsyncHandler(async (req, res) => {
   const { _id } = req?.user;
-  blockUser(req?.user);
   validateMongodbId(_id);
   const user = await User.findByIdAndUpdate(
     _id,
@@ -199,8 +198,8 @@ const unfollowUser = expressAsyncHandler(async (req, res) => {
 });
 
 const blockUser = expressAsyncHandler(async (req, res) => {
-  const { id } = req.params;
-  validateMongodbId(id);
+  const { id } = req?.params;
+  // validateMongodbId(id);
 
   const user = await User.findByIdAndUpdate(
     id,
@@ -319,9 +318,8 @@ const passwordReset = expressAsyncHandler(async (req, res) => {
 
 const profilePhotoUpload = expressAsyncHandler(async (req, res) => {
   const { _id } = req.user;
-  blockUser(req?.user);
 
-  const localPath = `public/images/profile/${req.file.filename}`;
+  const localPath = `public/images/profile/${req?.file?.filename}`;
   const imgUploaded = await cloudinaryUploadImg(localPath);
 
   const foundUser = await User.findByIdAndUpdate(
